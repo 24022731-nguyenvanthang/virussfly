@@ -1,31 +1,31 @@
 #include "Bird.h"
 #include "Constants.h"
-//D√≤ng n√†y bao g?m file khai b√°o l?p Bird v√† file ch?a c√°c h?ng s? nh? SCREEN_HEIGHT, GRAVITY, JUMP_STRENGTH.
+//DÚng n‡y bao g?m file khai b·o l?p Bird v‡ file ch?a c·c h?ng s? nh? SCREEN_HEIGHT, GRAVITY, JUMP_STRENGTH.
 Bird::Bird() {
-    //rect l√† m?t SDL_Rect ??i di?n cho h√¨nh ch? nh?t bao quanh chim (x, y, w, h)
+    //rect l‡ m?t SDL_Rect ??i di?n cho hÏnh ch? nh?t bao quanh chim (x, y, w, h)
     rect.w = 50;
     rect.h = 50;
-    //con chim ban ??u c√≥ k√≠ch th??c 50x50
-    Reset();//G?i Reset() ?? ??t l?i v? tr√≠ ban ??u c?a chim v√† t?c ?? r?i
+    //con chim ban ??u cÛ kÌch th??c 50x50
+    Reset();//G?i Reset() ?? ??t l?i v? trÌ ban ??u c?a chim v‡ t?c ?? r?i
 }
 
-void Bird::Update() {//H√†m Update() ???c g?i m?i frame ?? c?p nh?t v? tr√≠ chim
-    velocity += GRAVITY;//v?n t?c r?i c?a chim, t?ng d?n b?i GRAVITY ,GRAVITY l√† m?t h?ng s? d??ng nh?
-    //velocity l√† t?c ?? di chuy?n c?a chim theo tr?c y (l√™n/xu?ng).
-    // l√∫c ??u v=0,gra=0,5,frame 1: 0+ 0,5,frame 2:0,5+0,5...
-    rect.y += static_cast<int>(velocity);//C?p nh?t v? tr√≠ Y c?a chim theo v?n t?c., rect.y t?ng, chim ?i xu?ng,
+void Bird::Update() {//H‡m Update() ???c g?i m?i frame ?? c?p nh?t v? trÌ chim
+    velocity += GRAVITY;//v?n t?c r?i c?a chim, t?ng d?n b?i GRAVITY ,GRAVITY l‡ m?t h?ng s? d??ng nh?
+    //velocity l‡ t?c ?? di chuy?n c?a chim theo tr?c y (lÍn/xu?ng).
+    // l˙c ??u v=0,gra=0,5,frame 1: 0+ 0,5,frame 2:0,5+0,5...
+    rect.y += static_cast<int>(velocity);//C?p nh?t v? trÌ Y c?a chim theo v?n t?c., rect.y t?ng, chim ?i xu?ng,
     //Gi? s?
-   // velocity = 1.8 ta √©p th√†nh 1(int)
+   // velocity = 1.8 ta Èp th‡nh 1(int)
       //  rect.y = 100,rect y=101, chim r?i xu?ng 1 pixel
 
 }
 
 void Bird::Jump() {
-    velocity = JUMP_STRENGTH;// khi nh?y g√°n velocity = jump_tr ( l√† 1 s? √¢m) n√™n khi  rect.y += velocity (gi?m)s? l√†m chim ?i l√™n.
+    velocity = JUMP_STRENGTH;// khi nh?y g·n velocity = jump_tr ( l‡ 1 s? ‚m) nÍn khi  rect.y += velocity (gi?m)s? l‡m chim ?i lÍn.
 }
 
-void Bird::Reset() {// ??a v? tr?ng th√°i ban ??u khi ng ch?i reset
+void Bird::Reset() {// ??a v? tr?ng th·i ban ??u khi ng ch?i reset
     rect.x = 200;
     rect.y = SCREEN_HEIGHT / 2 - rect.h / 2;
-    velocity = 0;//velocity = 0; ? chim ??ng y√™n, kh√¥ng r?i c?ng kh√¥ng bay ngay t? ??u.
+    velocity = 0;//velocity = 0; ? chim ??ng yÍn, khÙng r?i c?ng khÙng bay ngay t? ??u.
 }
